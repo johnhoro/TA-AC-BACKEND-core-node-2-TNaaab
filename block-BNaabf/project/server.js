@@ -26,6 +26,7 @@ function handleRequest(req, res) {
     if (req.method === "POST" && req.url === "/form") {
       let formData = qs.parse(store);
       res.setHeader("Content-type", "text/html");
+      console.log(formData.name, formData.email, formData.age);
       res.end(
         `<h2>Name: ${formData.name}</h2> <h3>Email: ${formData.email}</h3> <p>Age: ${formData.age}</p>`
       );
@@ -39,5 +40,5 @@ function handleRequest(req, res) {
 }
 
 server.listen(5676, () => {
-  console.log("Server up and running on port 5676!");
+  console.log("Server is running on port 5676!");
 });
